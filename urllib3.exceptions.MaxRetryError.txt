@@ -1,0 +1,17 @@
+urllib3.exceptions.MaxRetryError
+- Max retries exceeded with url
+
+이런 오류가 발생을 했다면, 조치방법으로는 아래의 방법이 있다
+
+
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://bitinfocharts.com/bitcoin/address/3JZq4atUahhuA9rLhXLMhhTo133J9rF97j'
+
+ASIS : res = requests.get(url)
+TOBE : res = requests.get(url,verify=False,headers={"User-Agent" : "Mozilla/5.0"})
+
+일반적은 requests.get()을 통해서는 서버에서 Forbidden(403)으로 응답을 돌려준다
+이를 우회하기 위해서 [verify=False, headers={"User-Agent" : "Mozilla/5.0"}] 을 사용할 수 있다 
+ 
